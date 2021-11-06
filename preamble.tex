@@ -1,0 +1,124 @@
+% Required to support mathematical unicode
+\usepackage[warnunknown, fasterrors, mathletters]{ucs}
+\usepackage[utf8x]{inputenc}
+
+% Always typeset math in display style
+\everymath{\displaystyle}
+
+% Use a larger font size
+\usepackage[fontsize=11.5pt]{scrextend}
+
+% Standard mathematical typesetting packages
+\usepackage{amsfonts, amsthm, amsmath, amssymb}
+\usepackage{mathtools}  % Extension to amsmath
+\usepackage{thmtools}
+\usepackage[framemethod=TikZ]{mdframed}
+
+
+% Symbol and utility packages
+\usepackage{cancel, textcomp}
+\usepackage[mathscr]{euscript}
+\usepackage[nointegrals]{wasysym}
+
+% Extras
+\usepackage{physics}  % Lots of useful shortcuts and macros
+\usepackage{tikz}
+\usepackage{tikz-cd}  % For drawing commutative diagrams easily
+\usepackage{color}  % Add some colour to life
+\usepackage{xcolor}
+\usepackage{microtype}  % Minature font tweaks
+\usepackage[margin=1.0in]{geometry} 
+\usepackage{calc}
+
+% For Front Matter
+\usepackage[
+	colorlinks=true,
+	breaklinks,
+	allcolors=black,
+	hidelinks
+	]{hyperref}
+\usepackage[nameinlink]{cleveref}
+% Common shortcuts
+\def\mbb#1{\mathbb{#1}}
+\def\mfk#1{\mathfrak{#1}}
+
+\def\bN{\mbb{N}}
+\def\bC{\mbb{C}}
+\def\bR{\mbb{R}}
+\def\bQ{\mbb{Q}}
+\def\bZ{\mbb{Z}}
+
+% Sometimes helpful macros
+\newcommand{\func}[3]{#1\colon#2\to#3}
+\newcommand{\vfunc}[5]{\func{#1}{#2}{#3},\quad#4\longmapsto#5}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\ti}[1]{\textit{#1}}
+\newcommand{\tb}[1]{\textbf{#1}}
+\newcommand{\un}[1]{\underline{#1}}
+\newcommand{\hs}[1]{\hspace{#1}}
+\newcommand{\vs}[1]{\vspace{#1}}
+\newcommand{\fn}[1]{\footnote{#1}}
+
+% Thoerems 
+
+\mdfdefinestyle{mdbluebox}{%
+	linewidth=1pt,
+	skipabove=12pt,
+	innerbottommargin=9pt,
+	skipbelow=2pt,
+	nobreak=false,
+	linecolor=blue,
+	backgroundcolor=blue!5,
+}
+
+\mdfdefinestyle{mdredbox}{%
+	linewidth=0.5pt,
+	skipabove=12pt,
+	frametitleaboveskip=5pt,
+	frametitlebelowskip=0pt,
+	skipbelow=2pt,
+	frametitlefont=\bfseries,
+	innertopmargin=4pt,
+	innerbottommargin=8pt,
+	nobreak=false,
+	linecolor=red,
+	backgroundcolor=orange!5,
+}
+\mdfdefinestyle{mdgreenbox}{%
+	skipabove=8pt,
+	linewidth=2pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	nobreak=false,
+	linecolor=green,
+	backgroundcolor=green!5,
+}
+\mdfdefinestyle{mdblackbox}{%
+	skipabove=8pt,
+	linewidth=3pt,
+	rightline=false,
+	leftline=true,
+	topline=false,
+	bottomline=false,
+	nobreak=false,
+	linecolor=black,
+	backgroundcolor=black!5!gray!5,
+}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={style=mdgreenbox} ]{thmgreenbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={style=mdredbox} ]{thmredbox}
+\declaretheoremstyle[headfont=\bfseries\sffamily, bodyfont=\normalfont, mdframed={style=mdbluebox}]{thmbluebox}
+\declaretheoremstyle[headfont=\bfseries\sffmaily, bodyfont=\normalfont, mdframed={style=mdblackbox}]{thmblackbox}
+
+\declaretheorem[numberwithin=chapter, style=thmgreenbox, name=Definition]{definition}
+\declaretheorem[sibling=definition, style=thmredbox, name=Corollary]{corollary}
+\declaretheorem[sibling=definition, style=thmredbox, name=Proposition]{prop}
+\declaretheorem[numberwithin=,style=thmblackbox, name=]{Proof}
+\declaretheorem[sibling=definition, style=thmbluebox, name=Remark]{remark}
+\declaretheorem[sibling=definition, style=thmredbox, name=Theorem]{theorem}
+\declaretheorem[sibling=definition, style=thmredbox, name=Lemma]{lemma}
+\declaretheorem[sibling=definition, style=thmbluebox,  name=Example]{eg}
+\declaretheorem[sibling=definition, style=thmbluebox,  name=Nonexample]{noneg}
+
